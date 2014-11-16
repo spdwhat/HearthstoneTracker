@@ -665,8 +665,8 @@ namespace HearthCap.Features.Games.CurrentGame
             this.StartTime = message.StartTime;
             this.IsRunning = true;
             this.Deck = deckManager.GetOrCreateDeckBySlot(BindableServerCollection.Instance.DefaultName, message.Deck);
-            //this.events.PublishOnBackgroundThread(new ToggleFlyoutCommand(Flyouts.CurrentGame) { Show = true });
-            //this.events.PublishOnBackgroundThread(new ToggleFlyoutCommand(Flyouts.EditGame) { Show = false });
+            this.events.PublishOnBackgroundThread(new ToggleFlyoutCommand(Flyouts.CurrentGame) { Show = true });
+            this.events.PublishOnBackgroundThread(new ToggleFlyoutCommand(Flyouts.EditGame) { Show = false });
             var vm = IoC.Get<GameStartedBalloonViewModel>();
             vm.SetGameResult(message);
             events.PublishOnBackgroundThread(new TrayNotification("A new game has started", vm, 10000)
