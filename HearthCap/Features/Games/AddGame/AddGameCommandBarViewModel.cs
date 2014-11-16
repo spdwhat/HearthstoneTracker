@@ -92,7 +92,7 @@
 
         public void ShowCurrentGame()
         {
-            events.PublishOnCurrentThread(new ToggleFlyoutCommand(Flyouts.CurrentGame));
+            //events.PublishOnCurrentThread(new ToggleFlyoutCommand(Flyouts.CurrentGame));
         }
 
         /// <summary>
